@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gervais Heating & A/C</title>
+  <meta name="description" content="Fast, reliable HVAC service from Gervais Heating & A/C. Heating repair, A/C service, and installations." />
+  <style>
+    :root{
+      --bg:#020617;
+      --panel:rgba(255,255,255,.06);
+      --panel-border:rgba(255,255,255,.12);
+      --text:#ffffff;
+      --muted:#cbd5e1;
+      --blue:#38bdf8;
+      --orange:#fb923c;
+      --green:#86efac;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56,189,248,.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(251,146,60,.16), transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:0 22px}
+    .nav{
+      position:sticky;top:0;z-index:100;
+      backdrop-filter: blur(10px);
+      background:rgba(2,6,23,.84);
+      border-bottom:1px solid var(--panel-border);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:16px 0;
+    }
+    .brand{font-size:1.15rem;font-weight:700}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:14px 20px;border-radius:16px;font-weight:700;
+      border:1px solid transparent;cursor:pointer;
+      transition:.2s ease;min-height:48px;
+    }
+    .btn-primary{background:#fff;color:#0f172a}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{
+      background:rgba(255,255,255,.08);color:#fff;border-color:var(--panel-border);
+    }
+    .hero{padding:72px 0 54px;border-bottom:1px solid var(--panel-border)}
+    .hero-grid{
+      display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:center;
+    }
+    .badge{
+      display:inline-block;padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.06);border:1px solid var(--panel-border);
+      color:var(--muted);font-size:.92rem;margin-bottom:16px;
+    }
+    h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.02;margin:0}
+    .lead{font-size:1.16rem;color:var(--muted);max-width:700px;margin-top:18px}
+    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .stat,.card,.review,.cta,.form-card{
+      background:var(--panel);
+      border:1px solid var(--panel-border);
+      border-radius:24px;
+    }
+    .stat{padding:18px}
+    .stat-label{font-size:.9rem;color:var(--muted)}
+    .stat-value{font-size:1.5rem;font-weight:700;margin-top:8px}
+    .form-card{padding:26px}
+    .form-card h2{margin:0 0 6px 0;font-size:1.7rem}
+    .form-card p{margin:0 0 18px 0;color:var(--muted)}
+    .form-grid{display:grid;gap:12px}
+    input, select, textarea{
+      width:100%;padding:14px 16px;border-radius:16px;
+      border:1px solid var(--panel-border);
+      background:rgba(15,23,42,.88);color:#fff;font-size:1rem;
+    }
+    textarea{min-height:120px;resize:vertical}
+    section{padding:70px 0}
+    .section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;flex-wrap:wrap;margin-bottom:28px}
+    .eyebrow{font-size:.88rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:700}
+    h2{font-size:clamp(1.9rem,3vw,3rem);margin:.35rem 0}
+    .section-copy{max-width:700px;color:var(--muted)}
+    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .card,.review{padding:24px}
+    .icon{
+      width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px;
+    }
+    .card h3,.review h3{margin:0 0 8px 0;font-size:1.25rem}
+    .card p,.review p,.benefit{color:var(--muted)}
+    .why{
+      border-top:1px solid var(--panel-border);
+      border-bottom:1px solid var(--panel-border);
+      background:rgba(255,255,255,.04);
+    }
+    .benefit{
+      padding:16px 18px;border-radius:18px;background:rgba(2,6,23,.4);
+      border:1px solid var(--panel-border);
+    }
+    .stars{color:#fde68a;font-size:1rem;letter-spacing:1px;margin-bottom:12px}
+    .cta{
+      padding:34px;
+      background:linear-gradient(90deg, rgba(56,189,248,.18), rgba(251,146,60,.18));
+    }
+    .cta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+    .footer{
+      border-top:1px solid var(--panel-border);
+      color:var(--muted);padding:24px 0 42px;
+    }
+    .small{font-size:.94rem}
+    @media (max-width: 900px){
+      .hero-grid,.cta-grid,.cards-3,.cards-2{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .nav-inner{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Gervais Heating &amp; A/C</div>
+      <a class="btn btn-primary" href="tel:9784909165">📞 Call (978) 490-9165</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">Trusted Local HVAC Service</div>
+        <h1>Fast, reliable heating and cooling service.</h1>
+        <p class="lead">
+          Gervais Heating &amp; A/C helps homeowners with heating repair, A/C service, and installations.
+          Honest answers, clean work, and fast response when comfort matters most.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:9784909165">📞 Call Now</a>
+          <a class="btn btn-secondary" href="#request-service">Request Service</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat-label">Response</div>
+            <div class="stat-value">Same-Day</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Service Style</div>
+            <div class="stat-value">Honest</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Coverage</div>
+            <div class="stat-value">Local</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card" id="request-service">
+        <h2>Request Service</h2>
+        <p>Use this quick form to start gathering leads. Replace the form email with your own before going live.</p>
+        <form class="form-grid" action="mailto:youremail@example.com" method="post" enctype="text/plain">
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="tel" name="phone" placeholder="Phone number" required />
+          <select name="service">
+            <option>No heat</option>
+            <option>No A/C</option>
+            <option>System replacement</option>
+            <option>Maintenance</option>
+            <option>Other</option>
+          </select>
+          <textarea name="message" placeholder="Tell us what's going on"></textarea>
+          <button class="btn btn-primary" type="submit">Request Callback</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Services</div>
+          <h2>Heating and cooling help when you need it</h2>
+        </div>
+        <div class="section-copy">
+          From repairs and tune-ups to full system replacements, we help keep homes comfortable year-round.
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="card">
+          <div class="icon">🔥</div>
+          <h3>Heating Repair</h3>
+          <p>Fast diagnosis and repair for furnaces, boilers, and no-heat calls.</p>
+        </div>
+        <div class="card">
+          <div class="icon">❄️</div>
+          <h3>A/C Service</h3>
+          <p>Cooling tune-ups, repairs, and replacements to keep your home comfortable.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛠️</div>
+          <h3>Installations</h3>
+          <p>Professional system replacements and new installs done right the first time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="color:var(--orange)">Why choose us</div>
+          <h2>Straight answers and solid work</h2>
+        </div>
+        <div class="section-copy">
+          We believe service calls should be simple: show up, diagnose the issue, explain the options clearly, and fix it right.
+        </div>
+      </div>
+
+      <div class="cards-2">
+        <div class="benefit">✅ Locally owned and operated</div>
+        <div class="benefit">✅ Straightforward, honest service</div>
+        <div class="benefit">✅ Responsive scheduling</div>
+        <div class="benefit">✅ Quality workmanship you can trust</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head" style="justify-content:center;text-align:center">
+        <div>
+          <div class="eyebrow">Reviews</div>
+          <h2>What customers are saying</h2>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Quick, professional, and fair. Our heat was back on the same day. Highly recommend.”</p>
+          <h3>Sarah M.</h3>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Showed up on time, explained everything clearly, and fixed what another company missed.”</p>
+          <h3>Tom R.</h3>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Great service from start to finish. Friendly, clean, and very knowledgeable.”</p>
+          <h3>Emily D.</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta">
+        <div class="cta-grid">
+          <div>
+            <h2>Need help with your system?</h2>
+            <p class="section-copy small" style="margin:0;color:#e2e8f0">
+              Call today to schedule service, ask about installation options, or get a second opinion on a repair.
+            </p>
+          </div>
+          <div style="display:flex;gap:14px;justify-content:flex-end;flex-wrap:wrap">
+            <a class="btn btn-primary" href="tel:9784909165">📞 (978) 490-9165</a>
+            <a class="btn btn-secondary" href="#request-service">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    <div class="container small">
+      © <span id="year"></span> Gervais Heating &amp; A/C
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
