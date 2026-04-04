@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -10,7 +12,7 @@
   "serviceType": ["Furnace Repair", "AC Repair", "HVAC Service"]
 }
   </script>
-<head>
+  
   <meta name="google-site-verification" content="-aBJ5wlDBHtCx8jAxPF8U9S6fMbP1COID5hFxe3mjr0" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -51,12 +53,12 @@ a:hover {
       color:var(--text);
       line-height:1.5;
     }
-    a{color:inherit;text-decoration:none}
+    
     .container{max-width:1180px;margin:0 auto;padding:0 22px}
     .nav{
       position:sticky;top:0;z-index:100;
       backdrop-filter: blur(10px);
-      background:rgba(2,6,23,.84);
+      background:rgba(2,6,23,84);
       border-bottom:1px solid var(--panel-border);
     }
     .nav-inner{
@@ -150,7 +152,10 @@ a:hover {
 <body>
   <div class="nav">
     <div class="container nav-inner">
-      <div class="brand">Gervais Heating &amp; A/C</div>
+      <div class="brand" style="display:flex;align-items:center;gap:10px;">
+  <img src="/gervais-heating-ac-logo.png" alt="Gervais Heating & A/C logo" style="height:50px;">
+  <span>Gervais Heating & A/C</span>
+</div>
       <a class="btn btn-primary" href="tel:9784909165">📞 Call (978) 490-9165</a>
     </div>
   </div>
