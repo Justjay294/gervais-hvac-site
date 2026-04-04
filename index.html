@@ -151,20 +151,23 @@ a:hover {
 </head>
 <body>
   <div class="nav">
-  <div class="container nav-inner" style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:14px 0;">
+  <div class="container nav-inner" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;">
 
-    <div class="brand" style="display:flex;align-items:center;gap:12px;">
+    <div class="brand" style="display:flex;align-items:center;gap:10px;min-width:0;">
       <img src="compressed_1775313593182.png"
            alt="Gervais Heating & A/C logo"
-           style="height:60px; width:60px; border-radius:50%; object-fit:cover;">
-      <span style="font-size:18px; font-weight:600;">Gervais Heating & A/C</span>
+           style="height:44px; width:44px; border-radius:50%; object-fit:cover; flex-shrink:0;">
+      <span style="font-size:16px; font-weight:700; line-height:1.1;">Gervais Heating & A/C</span>
     </div>
 
-    <a class="btn btn-primary" href="tel:9784909165">📞 Call (978) 490-9165</a>
+    <a class="btn btn-primary"
+       href="tel:9784909165"
+       style="padding:10px 14px; border-radius:14px; font-size:14px; white-space:nowrap; flex-shrink:0;">
+      📞 Call
+    </a>
 
   </div>
 </div>
-
   <section class="hero">
     <div class="container hero-grid">
       <div>
