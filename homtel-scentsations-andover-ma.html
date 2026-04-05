@@ -1,62 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Homtel Scentsations | Gervais HVAC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homtel Scentsations | Gervais Heating & A/C</title>
+  <meta name="description" content="Make your home smell like a luxury hotel with Homtel Scentsations by Gervais Heating & A/C. Whole-home scent diffusion installed through your HVAC system in Andover, MA." />
+  <style>
+    :root{
+      --gold:#c89b5d;
+      --gold-dark:#9b6f33;
+      --cream:#f5eee5;
+      --brown:#22160f;
+      --brown-2:#3a281d;
+      --white:#ffffff;
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--cream);
+      color:#241914;
+      line-height:1.6;
+    }
+
+    h1,h2,h3{
+      font-family:Georgia, "Times New Roman", serif;
+      margin:0 0 16px;
+      line-height:1.1;
+    }
+
+    .topbar{
+      background:#120c08;
+      color:#fff;
+      text-align:center;
+      padding:12px 16px;
+      font-weight:bold;
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .topbar a{color:#fff;text-decoration:none;}
+
+    .hero{
+      background:
+        linear-gradient(rgba(20,12,8,.55), rgba(20,12,8,.65)),
+        url('compressed_1775313593182.png') center/cover no-repeat;
+      color:#fff;
+      padding:80px 20px;
+      text-align:center;
+    }
+
+    .hero-inner{
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:18px;
+      color:#f0cf9d;
+      font-weight:bold;
+      letter-spacing:.5px;
+      text-transform:uppercase;
+      border:1px solid rgba(240,207,157,.4);
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+    }
+
+    .hero h1{
+      font-size:clamp(42px, 7vw, 86px);
+      margin-bottom:18px;
+    }
+
+    .gold{
+      color:var(--gold);
+      font-style:italic;
+    }
+
+    .hero p{
+      font-size:clamp(18px, 2.5vw, 26px);
+      max-width:720px;
+      margin:0 auto 26px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:16px 28px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      margin:8px;
+    }
+
+    .btn-primary{
+      background:linear-gradient(180deg, #e3be84, var(--gold-dark));
+      color:#1e130d;
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,.4);
+      color:#fff;
+      background:rgba(255,255,255,.08);
+    }
+
+    .offer-bar{
+      background:linear-gradient(90deg,#f0cf9d,#c89b5d);
+      color:#2c1d14;
+      text-align:center;
+      padding:18px 12px;
+      font-size:clamp(22px, 4vw, 34px);
+      font-weight:800;
+    }
+
+    .section{
+      padding:60px 20px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:32px;
+      align-items:start;
+    }
+
+    .card{
+      background:#fff;
+      padding:28px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
+      margin-bottom:24px;
+    }
+
+    .card-dark{
+      background:linear-gradient(180deg, #2a1c14, #1b120d);
+      color:#fff;
+    }
+
+    .feature-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .feature-list li{
+      margin:12px 0;
+      padding-left:28px;
+      position:relative;
+    }
+
+    .feature-list li::before{
+      content:"✔";
+      color:var(--gold);
+      font-weight:bold;
+      position:absolute;
+      left:0;
+      top:0;
+    }
+
+    .split-list{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px 30px;
+    }
+
+    .quote-box{
+      background:#fffaf3;
+      border:2px solid #e6d3bc;
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+
+    .quote-box input,
+    .quote-box textarea{
+      width:100%;
+      padding:14px 14px;
+      margin:8px 0;
+      border-radius:10px;
+      border:1px solid #d4c0a8;
+      font-size:16px;
+    }
+
+    .quote-box textarea{
+      min-height:120px;
+      resize:vertical;
+    }
+
+    .image-box img{
+      width:100%;
+      border-radius:18px;
+      display:block;
+      box-shadow:0 10px 25px rgba(0,0,0,.16);
+      margin-bottom:22px;
+    }
+
+    .footer{
+      background:#120c08;
+      color:#fff;
+      text-align:center;
+      padding:28px 16px;
+    }
+
+    .footer a{
+      color:#f0cf9d;
+      text-decoration:none;
+    }
+
+    @media (max-width: 850px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .split-list{
+        grid-template-columns:1fr;
+      }
+      .hero{
+        padding:60px 18px;
+      }
+    }
+  </style>
 </head>
+<body>
 
-<body style="font-family: Arial; margin:0;">
+  <div class="topbar">
+    Call Now: <a href="tel:9784909165">(978) 490-9165</a>
+  </div>
 
-<!-- TOP BAR -->
-<div style="background:#2f2018; color:white; text-align:center; padding:10px;">
-  Call Now: <a href="tel:9784909165" style="color:white;">(978) 490-9165</a>
-</div>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Homtel Scentsations • Gervais Heating & A/C</div>
+      <h1>Make Your Home Smell Like a <span class="gold">Luxury Hotel</span></h1>
+      <p>
+        Turn your home into a 5-star experience with our whole-home scent diffusion system —
+        professionally installed through your HVAC.
+      </p>
+      <a class="btn btn-primary" href="tel:9784909165">Call Now: (978) 490-9165</a>
+      <a class="btn btn-secondary" href="#quote">Get Free Quote</a>
+    </div>
+  </section>
 
-<!-- HERO -->
-<div style="padding:60px; text-align:center; background:#333; color:white;">
-  <h1>Make Your Home Smell Like a <span style="color:#f1c27d;">Luxury Hotel</span></h1>
-  <p>Whole-home scent diffusion installed through your HVAC system</p>
+  <div class="offer-bar">$50 OFF INSTALL • Limited Time</div>
 
-  <a href="tel:9784909165" style="background:#c89b5d; padding:15px 25px; display:inline-block; margin-top:20px; font-weight:bold;">
-    Call Now: (978) 490-9165
-  </a>
-</div>
+  <section class="section">
+    <div class="container grid">
+      <div>
+        <div class="card">
+          <h2>What is Homtel Scentsations?</h2>
+          <p>
+            Homtel Scentsations by Gervais Heating & A/C is a premium scent system that
+            distributes high-end fragrances evenly throughout your home using your HVAC system.
+          </p>
+          <p>
+            Inspired by luxury hotels, this system delivers a clean, consistent scent in every room —
+            without candles, sprays, or plug-ins.
+          </p>
+        </div>
 
-<!-- OFFER -->
-<div style="background:#f1d39e; padding:20px; text-align:center; font-size:24px; font-weight:bold;">
-  $50 OFF INSTALL 🔥
-</div>
+        <div class="card card-dark">
+          <h2>Why Homeowners Love It</h2>
+          <ul class="feature-list">
+            <li>Whole-home scent coverage</li>
+            <li>Even distribution through ductwork</li>
+            <li>No residue or buildup</li>
+            <li>Safe for your HVAC system</li>
+            <li>Long-lasting, high-end fragrances</li>
+          </ul>
+        </div>
 
-<!-- CONTENT -->
-<div style="padding:40px; max-width:800px; margin:auto;">
+        <div class="card">
+          <h2>Perfect For</h2>
+          <div class="split-list">
+            <div>✔ Homes</div>
+            <div>✔ Rental Properties</div>
+            <div>✔ Offices</div>
+            <div>✔ Real Estate Showings</div>
+            <div>✔ Businesses</div>
+            <div>✔ Luxury Home Upgrades</div>
+          </div>
+        </div>
+      </div>
 
-<h2>What is Homtel Scentsations?</h2>
-<p>
-Homtel Scentsations by Gervais Heating & A/C is a premium scent system that distributes high-end fragrances evenly throughout your home using your HVAC system.
-</p>
+      <div>
+        <div class="image-box">
+          <img src="compressed_1775313593182.png" alt="Homtel Scentsations luxury scent system" />
+        </div>
 
-<h2>Why Homeowners Love It</h2>
-<ul>
-  <li>Whole-home scent coverage</li>
-  <li>Even distribution through ductwork</li>
-  <li>No residue or buildup</li>
-  <li>Safe for your HVAC system</li>
-  <li>Long-lasting fragrances</li>
-</ul>
+        <div class="quote-box" id="quote">
+          <h2>Ready to upgrade your home experience?</h2>
+          <p><strong>Call now:</strong> <a href="tel:9784909165">(978) 490-9165</a></p>
+          <p>Or request a free quote below.</p>
 
-<h2>How It Works</h2>
-<p>
-Our system connects directly to your HVAC and distributes scent evenly throughout your home.
-</p>
+          <form>
+            <input type="text" placeholder="Full Name" />
+            <input type="tel" placeholder="Phone" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Interested in Homtel Scentsations"></textarea>
+            <button class="btn btn-primary" type="submit" style="border:none;cursor:pointer;width:100%;">
+              Get Free Quote
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<h2>Ready to upgrade your home?</h2>
+  <section class="section" style="background:#eadfce;">
+    <div class="container">
+      <div class="card">
+        <h2>How It Works</h2>
+        <p>
+          Our cold air diffusion system connects directly to your HVAC system and distributes scent
+          evenly through your airflow so your whole home smells clean, elevated, and consistent.
+        </p>
+        <p>
+          No heat. No mess. Just a luxury scent experience throughout your home.
+        </p>
+        <p><strong>Serving Andover & surrounding areas with 25+ years of trusted local service.</strong></p>
+      </div>
+    </div>
+  </section>
 
-<a href="tel:9784909165" style="display:block; text-align:center; background:#c89b5d; padding:20px; font-size:22px; font-weight:bold;">
-  Call Now: (978) 490-9165
-</a>
-
-</div>
+  <div class="footer">
+    <p><strong>Gervais Heating & A/C</strong></p>
+    <p>
+      <a href="https://gervais-hvac.com">gervais-hvac.com</a> |
+      <a href="tel:9784909165">(978) 490-9165</a>
+    </p>
+  </div>
 
 </body>
 </html>
